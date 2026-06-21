@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wort | Literatur & Poesie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #06283d 0%, #14506b 50%, #03161f 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #f3f3f3;
+        }
+
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            padding-top: 40px;
+        }
+
+        .word-nav {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .word-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.6em;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .word-nav a:hover { opacity: 1; }
+        .word-nav a.active { color: #6fd3ff; }
+
+        /* Wortwechsel in unterschiedlicher Geschwindigkeit */
+        .word-nav a:nth-child(1) { animation: bob 4.5s ease-in-out infinite; }
+        .word-nav a:nth-child(2) { animation: bob 6s ease-in-out infinite; }
+        .word-nav a:nth-child(3) { animation: bob 3s ease-in-out infinite; }
+        .word-nav a:nth-child(4) { animation: bob 5s ease-in-out infinite; }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .description { font-size: 1em; }
+            .word-nav a { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="word-nav">
+            <a href="spiel.html">Spiel</a>
+            <a href="art.html">Kunst</a>
+            <a href="wort.html" class="active">Wort</a>
+            <a href="film.html">Film</a>
+        </nav>
+
+        <div class="content">
+            <h1>Wort</h1>
+            <div class="description">
+                <p>Das Wort – Sprache als Kunstform. Poesie und Literatur sind die Architektur von Gedanken, das Malen mit Worten, das Zeichnen von Bedeutung.</p>
+                <p style="margin-top: 20px;">Jede Phrase ist ein Baustein einer größeren Wahrheit, eine Brücke zwischen Herz und Verstand.</p>
+            </div>
+            <a href="index.html" class="nav-back">← Zurück</a>
+        </div>
+    </header>
+</body>
+</html>

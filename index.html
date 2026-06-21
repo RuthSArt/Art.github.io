@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruth</title>
+    <title>RuthS. | Schauspielerin · Filmemacherin · Künstlerin</title>
     <style>
         * {
             margin: 0;
@@ -12,69 +12,150 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4a0e2e 0%, #7d1844 50%, #2b0a1c 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
+            overflow-x: hidden;
+            color: #f5f5f5;
         }
 
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             text-align: center;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 960px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #667eea;
+            font-size: 6em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 4px;
         }
 
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 30px;
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.75;
         }
 
-        .links {
+        .clouds {
+            position: relative;
+            width: 720px;
+            max-width: 90vw;
+            height: 440px;
+            margin-bottom: 60px;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -1.5em;
+            text-decoration: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 2.6em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.92;
+        }
+
+        /* alle Wörter laufen auf derselben großen liegenden Acht (∞),
+           mit unterschiedlichem Tempo, damit sie sich zufällig kreuzen */
+        .cloud:nth-child(1) { animation: figure8 13s linear infinite -2s; }
+        .cloud:nth-child(2) { animation: figure8 17s linear infinite -9s; }
+        .cloud:nth-child(3) { animation: figure8 11s linear infinite -5s; }
+        .cloud:nth-child(4) { animation: figure8 19s linear infinite -14s; }
+
+        @keyframes figure8 {
+            0%     { transform: translate(0, 0); }
+            12.5%  { transform: translate(200px, -150px); }
+            25%    { transform: translate(290px, 0); }
+            37.5%  { transform: translate(200px, 150px); }
+            50%    { transform: translate(0, 0); }
+            62.5%  { transform: translate(-200px, -150px); }
+            75%    { transform: translate(-290px, 0); }
+            87.5%  { transform: translate(-200px, 150px); }
+            100%   { transform: translate(0, 0); }
+        }
+
+        .cloud:hover {
+            animation-play-state: paused;
+            text-shadow: 0 4px 24px rgba(255, 255, 255, 0.5);
+        }
+
+        .social-links {
             display: flex;
-            gap: 15px;
             justify-content: center;
+            gap: 22px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
 
-        a {
-            display: inline-block;
-            padding: 12px 28px;
-            background: #667eea;
-            color: white;
+        .social-links a {
+            color: #f5f5f5;
             text-decoration: none;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 12px 28px;
             border-radius: 6px;
-            transition: background 0.3s ease;
-            font-weight: 500;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.08);
+            letter-spacing: 0.5px;
         }
 
-        a:hover {
-            background: #764ba2;
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5em; }
+            .tagline { font-size: 1.05em; }
+            .cloud { width: 160px; height: 105px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Willkommen!</h1>
-        <p>Dies ist eine einfache Startseite für ruth.github.io</p>
-        <div class="links">
-            <a href="#about">Über mich</a>
-            <a href="#projects">Projekte</a>
-            <a href="#contact">Kontakt</a>
+    <header>
+        <div class="content">
+            <div class="clouds">
+                <a href="spiel.html" class="cloud">Spiel</a>
+                <a href="art.html" class="cloud">Kunst</a>
+                <a href="wort.html" class="cloud">Wort</a>
+                <a href="film.html" class="cloud">Film</a>
+            </div>
+
+            <h1>RuthS.</h1>
+            <p class="tagline">Schauspielerin • Filmemacherin • Bildende Künstlerin</p>
+
+            <div class="social-links">
+                <a href="https://www.filmmakers.eu/de/actors/ruth-spichtig" target="_blank">Filmmakers</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+            </div>
         </div>
-    </div>
+    </header>
 </body>
 </html>
