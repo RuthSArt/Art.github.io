@@ -1,1 +1,0 @@
-# ruth.github.io
