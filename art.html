@@ -64,11 +64,57 @@
             50% { transform: translateY(-16px); }
         }
 
+        .hero-image {
+            width: 100%;
+            max-width: 700px;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .gallery {
+            width: 100%;
+            max-width: 700px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 20px 0 24px;
+            color: #8ee79b;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; }
+        }
+
         .content {
             position: relative;
             z-index: 10;
             max-width: 700px;
-            padding: 40px;
+            padding: 0 40px 40px;
         }
 
         h1 {
@@ -119,12 +165,26 @@
             <a href="film.html">Film</a>
         </nav>
 
+        <img class="hero-image" src="images/KunstHauptbild.jpg" alt="Gemälde von Ruth Spichtig">
+
         <div class="content">
             <h1>Kunst</h1>
             <div class="description">
                 <p>Bildende Kunst ist der Ausdruck der Seele durch Form, Farbe und Material. Ein Dialog zwischen dem Inneren und dem Äußeren, zwischen Vision und Wirklichkeit.</p>
                 <p style="margin-top: 20px;">Jedes Werk ist ein Moment eingefangen, eine Frage gestellt, eine Emotion sichtbar gemacht.</p>
             </div>
+        </div>
+
+        <h2>Werke</h2>
+        <div class="gallery">
+            <img src="images/Kunstgelb.JPG" alt="Gemälde – gelb">
+            <img src="images/IMG_20260426_225248.jpg" alt="Abstraktes Gemälde in Grün und Rot">
+            <img src="images/KunstA.jpg" alt="Gemälde">
+            <img src="images/KunstEngel.JPG" alt="Gemälde – Engel">
+            <img src="images/KunstHiddenlive.JPG" alt="Gemälde – Hidden Life">
+        </div>
+
+        <div class="content" style="text-align: center; padding-top: 0;">
             <a href="index.html" class="nav-back">← Zurück</a>
         </div>
     </header>

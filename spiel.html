@@ -64,11 +64,22 @@
             50% { transform: translateY(-16px); }
         }
 
+        .portrait {
+            width: 280px;
+            max-width: 70vw;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
         .content {
             position: relative;
             z-index: 10;
-            max-width: 700px;
+            max-width: 760px;
             padding: 40px;
+            text-align: left;
         }
 
         h1 {
@@ -76,6 +87,7 @@
             margin-bottom: 30px;
             font-weight: 300;
             letter-spacing: 2px;
+            text-align: center;
         }
 
         .description {
@@ -83,6 +95,87 @@
             line-height: 1.8;
             margin-bottom: 40px;
             opacity: 0.95;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 50px 0 18px;
+            color: #6fd3ff;
+        }
+
+        /* Showreel */
+        .showreel {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .showreel iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Fakten */
+        .facts {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px 30px;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .facts li strong {
+            display: block;
+            font-weight: 600;
+            color: #6fd3ff;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            opacity: 0.85;
+        }
+
+        /* Credits */
+        .credits {
+            list-style: none;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .credits li::before {
+            content: "▪ ";
+            color: #6fd3ff;
+        }
+
+        .profile-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 14px 30px;
+            background: rgba(111, 211, 255, 0.15);
+            border: 1px solid rgba(111, 211, 255, 0.5);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-link:hover {
+            background: rgba(111, 211, 255, 0.3);
+            transform: translateY(-3px);
         }
 
         .nav-back {
@@ -107,6 +200,7 @@
             h1 { font-size: 2.5em; }
             .description { font-size: 1em; }
             .word-nav a { font-size: 1.2em; }
+            .facts { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -119,13 +213,53 @@
             <a href="film.html">Film</a>
         </nav>
 
+        <img class="portrait" src="images/Spichtig_URBL8023.jpg" alt="Porträt von Ruth Spichtig">
+
         <div class="content">
             <h1>Spiel</h1>
             <div class="description">
-                <p>Die Kunst der Darstellung. Schauspielerei ist das Eintauchen in andere Welten, das Verkörpern von Charakteren und das Erkunden menschlicher Emotionen.</p>
-                <p style="margin-top: 20px;">Jede Rolle ist eine neue Reise, ein Dialog zwischen Bühne und Publikum, zwischen Fiktion und Wahrheit.</p>
+                <p>Schauspielerin, ausgebildet an der Hochschule für Schauspielkunst Ernst Busch Berlin. Bühne, Film und Fernsehen – das Eintauchen in andere Welten, das Verkörpern von Charakteren und das Erkunden menschlicher Emotionen.</p>
             </div>
-            <a href="index.html" class="nav-back">← Zurück</a>
+
+            <h2>Showreel</h2>
+            <div class="showreel">
+                <iframe src="https://player.vimeo.com/video/26264751" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <h2>Profil</h2>
+            <ul class="facts">
+                <li><strong>Geboren</strong>Sarnen, Schweiz</li>
+                <li><strong>Größe</strong>164 cm</li>
+                <li><strong>Augen / Haare</strong>Blau / Dunkelblond</li>
+                <li><strong>Ausbildung</strong>HfS Ernst Busch Berlin (1992–1996)</li>
+                <li><strong>Sprachen</strong>Deutsch (Muttersprache), Englisch, Französisch, Italienisch</li>
+                <li><strong>Akzent</strong>Französisch</li>
+                <li><strong>Dialekte</strong>Bühnendeutsch, Luzern (Muttersprache), Obwalden, Basel, Bern, Berlin, Schweizerdeutsch</li>
+                <li><strong>Fächer</strong>Clown, Comedienne, Moderation, Sprecherin, Synchron</li>
+            </ul>
+
+            <h2>Ausgewählte Rollen</h2>
+            <ul class="credits">
+                <li>King Lear – Regan (Theater)</li>
+                <li>Endstation Sehnsucht – Stella Kowalski (Theater)</li>
+                <li>Ein Sommernachtstraum – Helena (Theater)</li>
+                <li>Das Haus Anubis (TV)</li>
+                <li>Familie Dr. Kleist (TV)</li>
+                <li>Glühen (Film)</li>
+                <li>Anuk – Der Weg des Kriegers (Film)</li>
+            </ul>
+
+            <h2>Agentur</h2>
+            <ul class="facts">
+                <li><strong>Vermittlung</strong>ZAV-Künstlervermittlung Berlin</li>
+                <li><strong>Kontakt</strong>Daniel Philippen</li>
+            </ul>
+
+            <div style="text-align: center;">
+                <a href="https://www.filmmakers.eu/de/actors/ruth-spichtig" target="_blank" class="profile-link">Vollständiges Profil auf Filmmakers →</a>
+                <br>
+                <a href="index.html" class="nav-back">← Zurück</a>
+            </div>
         </div>
     </header>
 </body>
