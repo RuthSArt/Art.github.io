@@ -73,19 +73,17 @@
 
         .gallery {
             width: 100%;
-            max-width: 700px;
+            max-width: 1200px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 20px;
+            margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gallery img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            object-fit: contain;
             transition: transform 0.4s ease;
             cursor: pointer;
         }
@@ -115,8 +113,104 @@
             text-align: center;
         }
 
+        .gallery.square {
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 100%;
+            gap: 12px;
+        }
+
+        .gallery.landscape {
+            display: none;
+        }
+
+        .gallery.square img {
+            aspect-ratio: 1 / 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: #8ee79b;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+        }
+
+        .gallery.square .gallery-item:hover img {
+            opacity: 0.7;
+            transform: scale(1.08);
+        }
+
+        .gallery.square .caption {
+            display: none;
+        }
+
+        .gallery-item {
+            position: relative;
+        }
+
+        .gallery-item.dragging {
+            position: fixed;
+            z-index: 999;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            cursor: grabbing;
+        }
+
+        .gallery-item.dragging img {
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 1024px) {
+            .gallery.square { grid-template-columns: repeat(3, 1fr); }
+        }
+
         @media (max-width: 768px) {
-            .gallery { grid-template-columns: 1fr; }
+            .gallery.square { grid-template-columns: repeat(2, 1fr); }
+            .modal-close { top: 15px; right: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery.square { grid-template-columns: 1fr; }
         }
 
         .content {
@@ -179,7 +273,7 @@
         <div class="content">
             <h1>Kunst</h1>
             <div class="description">
-                <p>Bildende Kunst sei Ausdruck der 
+                <p>Bildende Kunst ist Ausdruck der 
                     Seele durch Form, Farbe und Material, sagen die einen, für mich ist es Verdichtung von Wahrnehmung, ein gesellschaftlicher Ausdruck. Meine abstrakten Bilder sind oft über Nacht entstanden als Schlusspunkt eines Lebensthemas. 
                     Ein Dialog zwischen dem Inneren und dem 
                     Äußeren, zwischen Vision und Wirklichkeit.</p>
@@ -192,76 +286,174 @@
         </div>
 
         <h2>Werke</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_173203.jpg" alt="Werk">
-                <p class="caption">Titel 1 / Beschreibung</p>
-            </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_173239.jpg" alt="Werk">
-                <p class="caption">Titel 2 / Beschreibung</p>
-            </div>
-            <div class="gallery-item">
+
+        <div class="gallery square">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173317.jpg')">
                 <img src="images/abstrakte-malerei/20220429_173317.jpg" alt="Werk">
-                <p class="caption">Titel 3/ Beschreibung</p>
+                <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173346.jpg')">
                 <img src="images/abstrakte-malerei/20220429_173346.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_173409.jpg" alt="Werk">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173203.jpg')">
+                <img src="images/abstrakte-malerei/20220429_173203.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_173535.jpg" alt="Werk">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/IMG_20260426_225248.jpg')">
+                <img src="images/abstrakte-malerei/IMG_20260426_225248.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_174206.jpg" alt="Werk">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/KunstEngel.JPG')">
+                <img src="images/abstrakte-malerei/KunstEngel.JPG" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_174258.jpg" alt="Werk">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/KunstHiddenlive.JPG')">
+                <img src="images/abstrakte-malerei/KunstHiddenlive.JPG" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173239.jpg')">
+                <img src="images/abstrakte-malerei/20220429_173239.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/KunstA.jpg')">
+                <img src="images/abstrakte-malerei/KunstA.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/Kunstgelb.JPG')">
+                <img src="images/abstrakte-malerei/Kunstgelb.JPG" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174358.jpg')">
                 <img src="images/abstrakte-malerei/20220429_174358.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/KunstHauptbild.jpg')">
+                <img src="images/abstrakte-malerei/KunstHauptbild.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173535.jpg')">
+                <img src="images/abstrakte-malerei/20220429_173535.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174538.jpg')">
                 <img src="images/abstrakte-malerei/20220429_174538.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_174603.jpg" alt="Werk">
-                <p class="caption">Titel / Beschreibung</p>
-            </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174620.jpg')">
                 <img src="images/abstrakte-malerei/20220429_174620.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/20220429_174743.jpg" alt="Werk">
-                <p class="caption">Titel / Beschreibung</p>
-            </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_180922.jpg')">
                 <img src="images/abstrakte-malerei/20220429_180922.jpg" alt="Werk">
                 <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/IMG_20260426_225248.jpg" alt="Werk">
-                <p class="caption">Titel 9 / Beschreibung</p>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174603.jpg')">
+                <img src="images/abstrakte-malerei/20220429_174603.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
             </div>
-            <div class="gallery-item">
-                <img src="images/abstrakte-malerei/KunstA.jpg" alt="Werk">
-                <p class="caption">Titel last / Beschreibung</p>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174743.jpg')">
+                <img src="images/abstrakte-malerei/20220429_174743.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
             </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174206.jpg')">
+                <img src="images/abstrakte-malerei/20220429_174206.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_174258.jpg')">
+                <img src="images/abstrakte-malerei/20220429_174258.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/abstrakte-malerei/20220429_173409.jpg')">
+                <img src="images/abstrakte-malerei/20220429_173409.jpg" alt="Werk">
+                <p class="caption">Titel / Beschreibung</p>
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modal-image" class="modal-content" alt="Werk">
         </div>
 
         <div class="content" style="text-align: center; padding-top: 0;">
             <a href="index.html" class="nav-back">← Zurück</a>
         </div>
     </header>
+
+    <script>
+        let modalOpen = false;
+        let draggingElement = null;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('modal');
+            if (modalOpen) {
+                closeModal();
+                return;
+            }
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            modalOpen = true;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            modalOpen = false;
+        }
+
+        // Free movement on mousedown
+        document.querySelectorAll('.gallery.square .gallery-item').forEach(item => {
+            item.addEventListener('mousedown', function(e) {
+                if (draggingElement) return;
+
+                draggingElement = this;
+                const rect = this.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+
+                this.classList.add('dragging');
+                this.style.width = rect.width + 'px';
+                this.style.height = rect.height + 'px';
+
+                function moveMouse(moveEvent) {
+                    if (!draggingElement) return;
+                    draggingElement.style.left = (moveEvent.clientX - offsetX) + 'px';
+                    draggingElement.style.top = (moveEvent.clientY - offsetY) + 'px';
+                }
+
+                function stopDrag() {
+                    if (draggingElement) {
+                        draggingElement.classList.remove('dragging');
+                        draggingElement.style.position = '';
+                        draggingElement.style.left = '';
+                        draggingElement.style.top = '';
+                        draggingElement.style.width = '';
+                        draggingElement.style.height = '';
+                        draggingElement = null;
+                    }
+                    document.removeEventListener('mousemove', moveMouse);
+                    document.removeEventListener('mouseup', stopDrag);
+                }
+
+                document.addEventListener('mousemove', moveMouse);
+                document.addEventListener('mouseup', stopDrag);
+            });
+        });
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            closeModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
