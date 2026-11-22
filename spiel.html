@@ -150,6 +150,27 @@
 
         .slide-dots button.active { background: #fff; }
 
+        .slide-credit {
+            position: absolute;
+            right: 16px;
+            bottom: 12px;
+            z-index: 2;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .slide-credit {
+                right: 0;
+                left: 0;
+                bottom: 46px;
+                text-align: center;
+                font-size: 0.7em;
+            }
+        }
+
         @media (max-width: 768px) {
             .slideshow {
                 width: 100%;
@@ -324,18 +345,44 @@
         </nav>
 
         <div class="slideshow" aria-label="Porträts von Ruth Spichtig">
-            <div class="slide active" style="--bg: url('images/film/spiel_slide/portrait-1.jpg')">
-                <img src="images/film/spiel_slide/portrait-1.jpg" alt="Porträt von Ruth Spichtig">
+            <div class="slide active" style="--bg: url('images/film/spiel_slide/vip-2855.jpg')">
+                <img src="images/film/spiel_slide/vip-2855.jpg" alt="Porträt von Ruth Spichtig">
             </div>
-            <div class="slide" style="--bg: url('images/film/spiel_slide/portrait-2.jpg')">
-                <img src="images/film/spiel_slide/portrait-2.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2860.jpg')">
+                <img src="images/film/spiel_slide/vip-2860.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
             </div>
-            <div class="slide" style="--bg: url('images/film/spiel_slide/portrait-3.jpg')">
-                <img src="images/film/spiel_slide/portrait-3.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2841.jpg')">
+                <img src="images/film/spiel_slide/vip-2841.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
             </div>
-            <div class="slide" style="--bg: url('images/film/spiel_slide/portrait-4.jpg')">
-                <img src="images/film/spiel_slide/portrait-4.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2875.jpg')">
+                <img src="images/film/spiel_slide/vip-2875.jpg" alt="Porträt von Ruth Spichtig mit Hut" loading="lazy">
             </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2884.jpg')">
+                <img src="images/film/spiel_slide/vip-2884.jpg" alt="Porträt von Ruth Spichtig mit Hut, lachend" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2927.jpg')">
+                <img src="images/film/spiel_slide/vip-2927.jpg" alt="Porträt von Ruth Spichtig in weißer Bluse" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2821.jpg')">
+                <img src="images/film/spiel_slide/vip-2821.jpg" alt="Porträt von Ruth Spichtig" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2319.jpg')">
+                <img src="images/film/spiel_slide/vip-2319.jpg" alt="Beine in Netzstrümpfen und High Heels" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-3108.jpg')">
+                <img src="images/film/spiel_slide/vip-3108.jpg" alt="Porträt von Ruth Spichtig in weißer Bluse" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2705.jpg')">
+                <img src="images/film/spiel_slide/vip-2705.jpg" alt="Porträt von Ruth Spichtig, lächelnd" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2759.jpg')">
+                <img src="images/film/spiel_slide/vip-2759.jpg" alt="Porträt von Ruth Spichtig mit Perlenkette" loading="lazy">
+            </div>
+            <div class="slide" style="--bg: url('images/film/spiel_slide/vip-2782.jpg')">
+                <img src="images/film/spiel_slide/vip-2782.jpg" alt="Porträt von Ruth Spichtig in Schwarz" loading="lazy">
+            </div>
+
+            <span class="slide-credit">Fotos: @veryimportantpictures.com, Diana Post</span>
 
             <button class="slide-btn slide-prev" aria-label="Vorheriges Bild">‹</button>
             <button class="slide-btn slide-next" aria-label="Nächstes Bild">›</button>
