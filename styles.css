@@ -33,6 +33,18 @@ header {
     padding-top: 40px;
     padding-bottom: 60px;
     overflow: hidden;
+    background:
+        linear-gradient(180deg,
+            rgba(43, 10, 28, 0.45) 0%,
+            rgba(74, 14, 46, 0.15) 40%,
+            rgba(74, 14, 46, 0.6) 80%,
+            #4a0e2e 100%),
+        url("images/front/belitz-web.jpg") center / cover no-repeat;
+}
+
+header h1,
+header .tagline {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .clouds {
