@@ -35,16 +35,24 @@ header {
     overflow: hidden;
     background:
         linear-gradient(180deg,
-            rgba(43, 10, 28, 0.45) 0%,
-            rgba(74, 14, 46, 0.15) 40%,
-            rgba(74, 14, 46, 0.6) 80%,
+            rgba(0, 0, 0, 0.25) 0%,
+            rgba(0, 0, 0, 0) 25%,
+            rgba(0, 0, 0, 0) 70%,
+            rgba(74, 14, 46, 0.7) 90%,
             #4a0e2e 100%),
         url("images/front/belitz-web.jpg") center / cover no-repeat;
 }
 
 header h1,
-header .tagline {
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+header .tagline,
+header .scroll-hint {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75), 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+/* text-shadow der Wörter wird von der centerGlow-Animation belegt,
+   darum ein separater Schatten per filter */
+.cloud {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.75));
 }
 
 .clouds {
